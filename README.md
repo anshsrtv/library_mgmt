@@ -21,16 +21,22 @@ A library management software where admin can add/view/delete librarians and lib
 1. Activate it `source env/bin/activate`
 1. Install all the requirements `pip install -r requirements.txt`
 1. Migrate the migrations: `python manage.py migrate`
+1. Create a superuser `python manage.py createsuperuser` and enter the required credentials.
 1. Run the app: `python manage.py runserver`
 1. Navigate to http://localhost:8000 in your browser
+1. To create an admin, navigate to http://localhost:8000/admin/:
+    1. Select Profiles Table.
+    1. Click Add Profile.
+    1. Select the User and User type as **Admin** and click Save.
+1. Now, the admin can add librarians using the application views as shown [below](#views) .
 1. When you are done using the app, deactivate the virtual environment: `deactivate`
 
 ## Views:
-1. **The first page when you enter the url to the project is Login View:**
+1. **The first page when you enter the url is Login View:**
     <img src="documentation/login_view.png">
 1. **Admin View:**
     <img src="documentation/Admin_home_view.png">
-1. **To add a librarian, register with username &password here:**
+1. **To add a librarian, register with username & password here:**
     <img src="documentation/register_librarian_view.png">
 1. **When you logout, you get back the login page. Login with the username and password of a librarian and you get:**
     <img src="documentation/Librarian_home_view.png">
