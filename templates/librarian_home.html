@@ -15,7 +15,7 @@
     </tr>
     {% for student in students %}
     <tr>
-        <td><center>{{student.roll_no}}</center></td>
+        <td><center><a href="/view_issued/{{student.pk}}/">{{student.roll_no}}</a></center></td>
         <td><center>{{student.name}}</center></td>
         <td><center>{{student.contact}}</center></td>
         <td><center>{{student.address}}</center></td>

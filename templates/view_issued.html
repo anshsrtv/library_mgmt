@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 <!-- Bootstrap core CSS -->
-{% block sub-title%}Issued Books{% endblock %}
+
+{% block sub-title%}
+{% if roll_no %}
+Issued Books by {{roll_no}}
+{% else %}
+Issued Books
+{% endif %}
+{% endblock %}
 {% block content %}
 <center>
 <table class="table">
@@ -13,6 +20,7 @@
         <th><center>Issue Date</center></th>
         <th><center>Action</center></th>
     </tr>
+    
     {% for book in books %}
     <tr>
         <td><center>{{book.author}}</center></td>
@@ -25,6 +33,9 @@
         </tr>
     {% endfor %}
 </table>
+{% if not books %}
+    <center>No matching records found.</center>
+{% endif %}
 </br>
 <a class="btn btn-info" href="/">Back</a>
 <!-- <a class="btn btn-info" style="float: right; margin-right: 60px;" href="{% url 'add_book' %}"> Add Book </a> -->

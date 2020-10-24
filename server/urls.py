@@ -20,5 +20,6 @@ urlpatterns = [
     path('issue/<int:book_id>/', libviews.issue_book, name='issue'),
     path('return/<int:book_id>/', libviews.return_book, name='return'),
     path('view_issued/', libviews.view_issued_books, name='view_issued'),
+    path('view_issued/<int:student_id>/', libviews.student_issued_books, name='student_issued_books'),
     path('register_lib/', views.register_lib, name='register_lib'),
 ]

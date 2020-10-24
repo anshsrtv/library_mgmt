@@ -195,4 +195,20 @@ def view_issued_books(request):
     else:
         books= Book.objects.filter(issued=True)
         return render(request, 'view_issued.html', {'books':books})
+    
+@login_required(login_url="/login/")
+def student_issued_books(request, student_id):
+    try:
+        profile = Profile.objects.get(user=request.user, user_type='LIB')
+    except Exception as e:
+        print(e)
+        return HttpResponseForbidden("You are not authorized to view this.")
+    else:
+        try:
+            student = Student.objects.get(id=student_id)
+        except:
+            raise Http404("Student Not Found!")
+        else:
+            books= Book.objects.filter(issued=True, issued_to=student)
+            return render(request, 'view_issued.html', {'books':books, 'roll_no': student.roll_no})
        
