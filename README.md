@@ -1,4 +1,4 @@
-# Library_mgmt
+# Library Management
 A library management software where admin can add/view/delete librarians and librarian can add/update/delete students and add/view books, issue, view issued books and return books.
 
 
