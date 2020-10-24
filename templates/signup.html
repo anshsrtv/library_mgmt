@@ -1,0 +1,26 @@
+
+  <form method="post" novalidate>
+    <div align="center">
+    <h1>
+      Member Signup
+    </h1>
+        {% csrf_token %}
+        <table>
+          {% for field in form %}
+              <tr><td>{{ field.label_tag }}</td><td> {{ field }}</td><td><font color='red'>{{field.errors}}</font></td></tr>
+      {% endfor %}
+      </table></br>
+      <!-- {{form.as_p}} -->
+        <button type="submit" >
+          SIGNUP
+        </button>
+      </div>
+    </br>
+    <div align="center">
+  </form>
+  <!-- <div class="text-center p-t-136"> -->
+    Already a member?
+    <a class="txt2" href="/login/">
+      LOGIN
+      <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+    </a>

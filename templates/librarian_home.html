@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+<!-- Bootstrap core CSS -->
+{% block sub-title%}Librarian Home{% endblock %}
+{% block content %}
+<center>
+<!-- <a class="btn btn-info" style="float: right; margin-right: 60px;" href="{% url 'logout' %}"> Logout </a> -->
+<h2>Students</h2>
+<table class="table">
+    <tr>
+        <th><center>Roll No</center></th>
+        <th><center>Name</center></th>
+        <th><center>Contact</center></th>
+        <th><center>Address</center></th>
+        <th><center>Update/Delete</center></th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td><center>{{student.roll_no}}</center></td>
+        <td><center>{{student.name}}</center></td>
+        <td><center>{{student.contact}}</center></td>
+        <td><center>{{student.address}}</center></td>
+        <td><center><a href="/update_student/{{student.pk}}/">Update</a>/<a onclick="return confirm('Are you sure you want to delete the record of {{student.roll_no}} from students?');" href="/delete_student/{{student.pk}}/">Delete</a></center></td>
+    </tr>
+    {% endfor %}
+</table>
+<a class="btn btn-info" style="float: right; margin-right: 60px;" href="{% url 'add_student' %}"> Add Student </a>
+</br>
+</br>
+</br>
+
+<h2>Books</h2>
+<table class="table">
+    <tr>
+        <th scope="col"><center>Author</center></th>
+        <th scope="col"><center>Title</center></th>
+        <th scope="col"><center>ISBN</center></th>
+        <th scope="col"><center>Update/Delete</center></th>
+        <th scope="col"><center>Issued to</center></th>
+        <th scope="col"><center>Issue Date</center></th>
+        <th scope="col"><center>Action</center></th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td><center>{{book.author}}</center></td>
+        <td><center>{{book.title}}</center></td>
+        <td><center>{{book.isbn}}</center></td>
+        <td><center><a href="/update_book/{{book.pk}}/">Update</a>/<a onclick="return confirm('Are you sure you want to delete the record of {{book.title}} from books?');" href="/delete_book/{{book.pk}}/">Delete</a></center></td>
+        {% if book.issued %}
+        <td><center>{{book.issued_to.roll_no}}</center></td>
+        <td><center>{{book.issue_date}}</center></td>
+        <td><center><a href="/return/{{book.id}}/">Return</a></td>
+        {% else %}
+        <td><center>-</center></td>
+        <td><center>-</center></td>
+        <td><center><a href="/issue/{{book.id}}/">Issue</a></td>
+        {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+</br></br>
+<div align='left'>
+    <a class="btn btn-success" style="float: left; margin-left: 60px;" href="{% url 'view_issued' %}">View Issued Books</a>
+</div>
+<a class="btn btn-info" style="float: right; margin-right: 60px;" href="{% url 'add_book' %}"> Add Book </a>
+</center>
+
+{% endblock %}

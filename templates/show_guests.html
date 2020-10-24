@@ -1,0 +1,18 @@
+<center>
+    <h2>Add Librarian</h2>
+    <table>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Add as Librarian</th>
+        </tr>
+        {% for guest in guests %}
+        <tr>
+            <td><center>{{guest.user.username}}</center></td>
+            <td><center>{{guest.user.email}}</center></td>
+            <td><center><a href='/add_lib/{{guest.pk}}/'>Add</a></center></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <center>To register a Librarian, <a href="{% url 'register_lib' %}">Register Librarian</a></center>

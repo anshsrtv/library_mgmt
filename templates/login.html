@@ -1,0 +1,31 @@
+{% extends "form.html" %}
+<!-- Bootstrap core CSS -->
+{% block sub-title %}Register New Librarian{% endblock %}
+{% block content %}
+{%load static%}
+    <form method="post" novalidate >
+    <img class="mb-4" src="{% static 'book.png' %}" alt="" width="72" height="72">
+    <h1>Login</h1>
+</br>
+{% if message %}
+<p style="color: red;">{{message}}</p>
+</br>
+{% endif %}
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+</br>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">
+            Login
+        </button>
+
+
+    <!-- <div>
+        New Member?
+        <a href="/signup/">
+            Create your Account
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
+    </div> -->
+    </form>
+{% endblock %}

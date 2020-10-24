@@ -1,0 +1,18 @@
+<div align ="center">
+    <form method="post" novalidate>
+    </br>
+    </br>
+    <h1>Add Librarian</h1>
+    </br>
+    {% csrf_token %}
+    <table>
+        {% for field in form %}
+            <tr><td>{{ field.label_tag }}</td><td> {{ field }}</td><td><font color='red'>{{field.errors}}</font></td></tr>
+    {% endfor %}
+    </table></br>
+<button type="submit" >
+    Submit
+</button>
+</form>
+<center>To add a Librarian not present in the list, ask them to register on the platform.</center>
+</div>

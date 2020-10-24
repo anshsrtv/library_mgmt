@@ -1,0 +1,21 @@
+{% extends "form.html" %}
+<!-- Bootstrap core CSS -->
+{% block sub-title %}Register New Librarian{% endblock %}
+{% block content %}
+{%load static%}
+<div align ="center">
+    <form method="post" novalidate>
+    <h1>Issue Book</h1>
+    </br>
+    {% csrf_token %}
+    <table>
+        {% for field in form %}
+            <tr><td>{{ field.label_tag }}</td><td> {{ field }}</td><td><font color='red'>{{field.errors}}</font></td></tr>
+    {% endfor %}
+    </table></br>
+<button type="submit" class="btn btn-primary btn-lg">
+    Submit
+</button>
+</form>
+</div>
+{% endblock %}

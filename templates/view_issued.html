@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+<!-- Bootstrap core CSS -->
+{% block sub-title%}Issued Books{% endblock %}
+{% block content %}
+<center>
+<table class="table">
+    <tr>
+        <th><center>Author</center></th>
+        <th><center>Title</center></th>
+        <th><center>ISBN</center></th>
+        <th><center>Update/Delete</center></th>
+        <th><center>Issued to</center></th>
+        <th><center>Issue Date</center></th>
+        <th><center>Action</center></th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td><center>{{book.author}}</center></td>
+        <td><center>{{book.title}}</center></td>
+        <td><center>{{book.isbn}}</center></td>
+        <td><center><a href="/update_book/{{book.pk}}/">Update</a>/<a href="/delete_book/{{book.pk}}/">Delete</a></center></td>
+        <td><center>{{book.issued_to.roll_no}}</center></td>
+        <td><center>{{book.issue_date}}</center></td>
+        <td><center><a href="/return/{{book.id}}/">Return</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</br>
+<a class="btn btn-info" href="/">Back</a>
+<!-- <a class="btn btn-info" style="float: right; margin-right: 60px;" href="{% url 'add_book' %}"> Add Book </a> -->
+</center>
+{%endblock%}
