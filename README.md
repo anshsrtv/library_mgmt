@@ -1,8 +1,10 @@
 # Library Management
 A library management software where admin can add/view/delete librarians and librarian can add/update/delete students and add/view books, issue, view issued books and return books. 
-### Admin Credentials for [live demo](http://ec2-15-207-249-218.ap-south-1.compute.amazonaws.com:3000)
+
+<!-- ### Admin Credentials for [live demo](http://ec2-15-207-249-218.ap-south-1.compute.amazonaws.com:3000)
 * Username: admin
 * Password: bOOK.lov3r
+-->
 
 
 ## Setup & Run:
